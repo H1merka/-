@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: recfacelib
+Version: 0.0.1
+Summary: Этот репозиторий предназначен для обнаружения, выравнивания, распознавания лиц, а также для создания векторов признаков для заданных лиц и их сравнения.
+Home-page: https://github.com/H1merka/Face_recognition
+Author: Progress-code team
+Author-email: 
+License: UNKNOWN
+Project-URL: Dlib_package_GitHub, https://github.com/z-mahmud22/Dlib_Windows_Python3.x
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.11.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: ==3.11.7
+Description-Content-Type: text/markdown
+
+# recfacelib #
+
+## Что это? ##
+Этот репозиторий позволяет вам легко считывать лица людей с фотографий и сравнивать их
+
+
+----------
+
+
+### Использование ###
+
+
+Сначала нужно создать экземпляр класса Photo и передать в него путь к фотографии:
+
+    photo = Photo('imgs/example.jpg')
+
+
+Затем вызовите метод `find_face(min_size, draw_rects)` у экземпляра.
+`min_size` - ограничение на размеры лиц в пикселях.
+`draw_rects` - рисовать или нет прямоугольники вокруг найденных лиц на фото в экземпляре Photo:
+
+    faces = photo.find_face((40, 50), True)
+
+
+Метод `show_img(name, scale)` позволяет вывести изображение в отдельном окне.
+`name` - имя окна, обязательный параметр.
+`scale` - масштаб изображения, умножает размеры изображения на число, необязательный параметр.
+
+    photo.show_img('my_pic', 0.25)
+
+
+Метод `faces_compare(image_array_1, image_array_2, jitters=30)` сравнивает лица и возвращает результат в виде float.
+`image_array_1`, `image_array_2` - элементы результата работы `find_face()`.
+`jitters` - точность сравнения, чем больше - тем дольше выполняется и тем больше нагрузка на среду выполнения.
+
+
+    Comparison.faces_compare(faces[0], faces[1], 50)
+
+
+----------
+
+
+## Команда разработчиков ##
+Ссылка GitHub: [link](https://github.com/H1merka/Face_recognition) 
+
